@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+/* ☀️ مشمس */
+.sunny {
+  background: linear-gradient(to top, #ffe259, #ffa751);
+}
+
+.sunny {
+  background: linear-gradient(to top, #ffe259, #ffa751);
+}
+
+.sunny::before {
+  content: '☀️';
+  font-size: 6rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  animation: rotateSun 6s linear infinite;
+  z-index: 1;
+}
+@keyframes rotateSun {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* ☁️ غيوم */
+.cloudy {
+  background: linear-gradient(to top, #bdc3c7, #2c3e50);
+}
+
+.cloudy::before {
+  content: '☁️☁️';
+  font-size: 5rem;
+  position: absolute;
+  top: 40px;
+  left: -100px;
+  animation: moveClouds 25s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moveClouds {
+  0% { left: -100px; }
+  100% { left: 100%; }
+}
+
+.rainy {
+  background: linear-gradient(to top, #667db6, #485563);
+}
+
+.rainy::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.5) 5px, transparent 5px),
+    linear-gradient(rgba(255,255,255,0.3) 2px, transparent 2px);
+  background-size: 2px 20px;
+  animation: rain 0.3s linear infinite;
+  z-index: 2;
+  opacity: 0.9;
+}
+@keyframes rain {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+/* 🌨️ ثلج */
+.snowy {
+  background: linear-gradient(to top, #e0eafc, #cfdef3);
+}
+
+.snowy::before {
+  content: '❄️❄️❄️';
+  font-size: 3rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: snowFall 4s linear infinite;
+  z-index: 2;
+}
+@keyframes snowFall {
+  0% { top: -30px; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+
+/* 🌫️ ضباب */
+.foggy {
+  background: linear-gradient(to top, #636363, #a2ab58);
+}
+
+.foggy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.15),
+    rgba(255,255,255,0.15) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  animation: fogMove 4s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes fogMove {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+  100% { transform: translateY(0); }
+}
